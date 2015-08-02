@@ -1,0 +1,74 @@
+*{
+  margin: 0;
+}
+button{
+  outline: none;
+}
+.material-design{
+  display: inline-block;
+  text-align: center;
+}
+.material-design span{
+  color: #444;
+  font-family: "微软雅黑";
+  font-size: 1.5em;
+}
+div.material-design span{
+  display: block;
+}
+div.div-1 span{
+  margin-top: 30px;
+}
+div.div-2 span{
+  margin-top: 20px;
+}
+.round{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #345;
+}
+.rect{
+  width: 220px;
+  height: 80px;
+  border: 1px solid #345;
+}
+#container{
+  width: 800px;
+  margin: auto;
+}
+#title{
+  text-align: center;
+  margin-top: 50px;
+  font-size: 2em;
+  font-family: "微软雅黑";
+  color: #928393;
+}
+#container p{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: #242422;
+  font-size: 1.4em;
+  font-family: "微软雅黑";
+}
+div{
+  position: relative;
+  top: 30px;
+}
+.div-1{
+  border: 0;
+  background-color: #8ac249;
+}
+.div-2{
+  border: 0;
+  background-color: #efa5ac;
+}
+.btn-1{
+  margin-left: 50px;
+  border: 0;
+  background-color: #83b6eb;
+}
+.btn-2{
+  border: 0;
+  background-color: #ffff99;
+}
