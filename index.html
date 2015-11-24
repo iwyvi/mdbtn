@@ -1,26 +1,80 @@
 <!doctype html>
-<html lang="zh">
+<html lang="zh-cn">
 <head>
   <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
   <title>Canvas实现Material Design按钮</title>
   <link rel="stylesheet" href="main.css">
-  <script src="js/mdbtn.js"></script>
+  <script src="js/mdbtn.min.js"></script>
 </head>
 <body>
+  <header>
+    <h1 id="title">mdbtn.js</h1>
+    <h3 id="subtitle">用Canvas实现Material Design按钮效果</h3>
+  </header>
   <div id="container">
-    <h1 id="title">Canvas实现Material Design按钮</h1>
-    <p>无颜色参数</p>
-    <div class="material-design round div-1"><span>div元素</span></div>
-    <div class="material-design rect div-2"><span>div元素</span></div>
-    <button class="material-design round btn-1"><span>按钮</span></button>
-    <button class="material-design rect btn-2"><span>按钮</span></button>
-
-    <p>有颜色参数</p>
-    <div class="material-design round div-1" data-color="#52732b"><span>div元素</span></div>
-    <div class="material-design rect div-2" data-color="#f6244f"><span>div元素</span></div>
-    <button class="material-design round btn-1" data-color="rgb(67,113,161)"><span>按钮</span></button>
-    <button class="material-design rect btn-2" data-color="rgb(133,133,62)"><span>按钮</span></button>
-    <p>只要给元素添加material-design的class即可</p>
+    <div class="card">
+      <div class="cardtitle">简介</div>
+      <p>mdbtn使用canvas绘制按钮按下后的波纹效果</p>
+      <p>按钮在按下时波纹展开速度较慢，且展开后不消失；松开或者离开按钮则波纹速度会加快，同时在覆盖完空间后自行消失</p>
+      <h4 class="cardsubtitle">基本使用方法</h4>
+      <p>导入<strong>mdbtn.js</strong></p>
+      <p>将需要用到效果的部分添加<strong>mdbtn</strong>的class</p>
+      <p>在body最后加入<strong>mdbtn.init();</strong></p>
+      <p>在元素上添加<strong>data-color=""</strong>可以为元素设置按下后的波纹颜色（可以使用十六进制颜色或者rgb颜色）</p>
+      <h4 class="cardsubtitle">接口和参数</h4>
+      <p><strong>mdbtn.init(elements,option)</strong></p>
+      <p>elements(string):可选，用于设置添加效果的类名（默认为mdbtn）</p>
+      <p>option(object):可选，用于配置mdbtn的属性（属性配置见下面的卡片）</p>
+      <p><strong>mdbtn.setOption(option)</strong></p>
+      <p>option(object):必选，用于配置mdbtn的属性（属性配置见下面的卡片）</p>
+      <p><strong>mdbtn.addElements(elements)</strong></p>
+      <p>elements(string):必选，添加class为elements的所有元素</p>
+      <h4 class="cardsubtitle">一些问题的说明</h4>
+      <p>因为是js初学者，所以肯定存在许多bug，代码写的也比较乱</p>
+      <p>每个mdbtn元素都会强制加上<strong>overflow:hidden</strong>和<strong>position:relative</strong>，如果有其他css请再在外面套一层</p>
+      <p>当元素未指定width和height时加入圆角，可能会使里层canvas超出圆角显示（我并不知道为什么），然后似乎将元素设置为<strong>display:inline-block</strong>可以解决</p>
+    </div>
+    <div class="card">
+      <div class="cardtitle">无颜色参数</div>
+      <div class="mdbtn div-1">div元素</div>
+      <button class="mdbtn button-1">button元素</button>
+      <div class="mdbtn div-2">宽度为100%的div</div>
+      <a href="###" class="mdbtn a-1">有高度和宽度的a标签</a>
+      <a href="###" class="mdbtn a-2">普通的a标签</a>
+    </div>
+   
+    <div class="card">
+      <div class="cardtitle">有颜色参数</div>
+      <div class="mdbtn div-1" data-color="#52732b">div元素 (#52732b)</div>
+      <button class="mdbtn button-1" data-color="#f6244f">button元素 (#f6244f)</button>
+      <div class="mdbtn div-2" data-color="rgb(67,113,161)">宽度为100%的div (rgb(67,113,161))</div>
+    </div>  
+    <div class="card">
+      <div class="cardtitle">参数介绍</div>
+      <p><strong>color</strong>:按下后的默认波纹颜色（不影响有data-color的元素）</p>
+      <p><strong>showPressColor</strong>:按下后是否显示按键颜色</p>
+      <p><strong>pressColor</strong>:按下后按键的颜色</p>
+      <p><strong>processStep</strong>:波纹展开速度（数值越大速度越慢，默认80）</p>
+      <br>
+      <p>本来这一应该做一个修改参数的部分，但是现在懒（其实是觉得麻烦）</p>
+    </div>
+    <div class="card">
+      <div class="cardtitle">关于</div>
+      <h4 class="cardsubtitle">这个插件借鉴了网上的一些代码</h4>
+      <a href="http://www.zhangxinxu.com/wordpress/2010/03/javascript-hex-rgb-hsl-color-convert/" class="mdbtn a-3" target="_blank">颜色格式转换</a>
+      <h4 class="cardsubtitle">制作:IwYvI</h4>
+      <h4 class="cardsubtitle">初版时间：2015.8.2</h4>
+      <h4 class="cardsubtitle">修改时间：2015.11.23</h4>
+    </div>
   </div>
+
+  <script>
+  mdbtn.init();
+  </script>
 </body>
 </html>
