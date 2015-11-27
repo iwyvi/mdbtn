@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
   <title>Canvas实现Material Design按钮</title>
   <link rel="stylesheet" href="main.css">
-  <script src="js/mdbtn.min.js"></script>
+  <script src="js/mdbtn.js"></script>
 </head>
 <body>
   <header>
@@ -37,7 +37,8 @@
       <h4 class="cardsubtitle">一些问题的说明</h4>
       <p>因为是js初学者，所以肯定存在许多bug，代码写的也比较乱</p>
       <p>每个mdbtn元素都会强制加上<strong>overflow:hidden</strong>和<strong>position:relative</strong>，如果有其他css请再在外面套一层</p>
-      <p>当元素未指定width和height时加入圆角，可能会使里层canvas超出圆角显示（我并不知道为什么），然后似乎将元素设置为<strong>display:inline-block</strong>可以解决</p>
+      <p><del>当元素未指定width和height时加入圆角，可能会使里层canvas超出圆角显示</del>（我并不知道为什么）<del>，然后似乎将元素设置为<strong>display:inline-block</strong>可以解决</del></p>
+      <p>圆角问题强行给canvas设置圆角暂时解决</p>
     </div>
     <div class="card">
       <div class="cardtitle">无颜色参数</div>

@@ -90,6 +90,7 @@ material-design button
     canvas.style.height='100%';
     canvas.style.opacity = 0.25;
     canvas.style.position = "absolute";
+    canvas.style.borderRadius = getCurrentStyle(ele, "border-radius");
     canvas.style.top = 0;
     canvas.style.left = 0;
     canvas.width = canvas.offsetWidth;
