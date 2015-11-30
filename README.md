@@ -36,7 +36,10 @@ elements(string):必选，添加class为elements的所有元素
 
 每个mdbtn元素都会强制加上`overflow:hidden`和`position:relative`，如果有其他css请再在外面套一层
 
-当元素未指定width和height时加入圆角，可能会使里层canvas超出圆角显示（我并不知道为什么），然后似乎将元素设置为`display:inline-block`可以解决
+~~当元素未指定width和height时加入圆角，可能会使里层canvas超出圆角显示（我并不知道为什么），然后似乎将元素设置为`display:inline-block`可以解决~~
+这一部分以强行给canvas设置圆角解决
+ 
+**然后目前还发现有click事件在firefox下有问题（其他浏览器似乎都没有），目前只能用mouseup来暂时解决**
 
 同时代码中HEX与RGB颜色转换代码参照修改了
 http://www.zhangxinxu.com/wordpress/2010/03/javascript-hex-rgb-hsl-color-convert/
