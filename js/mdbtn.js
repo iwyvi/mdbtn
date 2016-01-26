@@ -58,7 +58,7 @@ material-design button
     if(elements && typeof(elements) == "string"){this.elements = elements;};
     var containers = document.getElementsByClassName(this.elements);
     for (var i = 0; i < containers.length; i++) {
-       containers[i].style.position = "relative";
+       containers[i].setAttribute('style',containers[i].getAttribute("style") + ";position:relative;");
        containers[i].setAttribute('style',containers[i].getAttribute("style") + ";overflow:hidden !important;");
       //添加鼠标事件-
       //目前没有处理触屏事件
@@ -103,7 +103,7 @@ material-design button
       draw();
     }
   };
-    
+
   /*
   绘图事件
    */
@@ -118,7 +118,7 @@ material-design button
         }
       };
       if(!mousedown){
-        for(var i = 0;i<process.length;i++){ 
+        for(var i = 0;i<process.length;i++){
           process[i].autoClear = true;
         }
       }
@@ -133,25 +133,25 @@ material-design button
    */
   var requestNextFrame = function () {
     return (
-      window.requestAnimationFrame    || 
-      window.mozRequestAnimationFrame || 
-      window.oRequestAnimationFrame   || 
-      window.msRequestAnimationFrame  || 
+      window.requestAnimationFrame    ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame   ||
+      window.msRequestAnimationFrame  ||
       function (callback) {
         window.setTimeout(callback, 1000 / 60);
       }
     );
   } ();
-  var getCurrentStyle = function (obj, prop) {     
-    if (obj.currentStyle) {        
-        return obj.currentStyle[prop];     
-    }      
-    else if (window.getComputedStyle) {        
-        var propprop = prop.replace (/([A-Z])/g, '-$1');           
-        propprop = prop.toLowerCase ();        
-        return document.defaultView.getComputedStyle (obj,null)[prop];     
-    }      
-    return null;   
+  var getCurrentStyle = function (obj, prop) {
+    if (obj.currentStyle) {
+        return obj.currentStyle[prop];
+    }
+    else if (window.getComputedStyle) {
+        var propprop = prop.replace (/([A-Z])/g, '-$1');
+        propprop = prop.toLowerCase ();
+        return document.defaultView.getComputedStyle (obj,null)[prop];
+    }
+    return null;
   };
   var getEffectElement = function (e) {
     var element = null;
@@ -168,7 +168,7 @@ material-design button
 
   /*
   按钮类
-   */  
+   */
   var singleMdbtn = function  (color,canvas,context,centerX,centerY) {
     this.init(color,canvas,context,centerX,centerY);
   };
@@ -199,7 +199,7 @@ material-design button
       if(this.radius >= this.shadowRadius*Math.sqrt(2)){
         if(this.autoClear){
           this.hide();
-          if(this.alpha<0){  
+          if(this.alpha<0){
             this.clear();
             this.isFinish = true;
           }
@@ -239,16 +239,16 @@ material-design button
     },
     setStep: function (percent) {
       var tpercent = percent || mdbtn.option.processStep;
-      this.radiusStep = (this.shadowRadius+(this.canvas.width>this.canvas.height?this.canvas.width:this.canvas.height))/2/tpercent > 2? 
+      this.radiusStep = (this.shadowRadius+(this.canvas.width>this.canvas.height?this.canvas.width:this.canvas.height))/2/tpercent > 2?
       (this.shadowRadius+(this.canvas.width>this.canvas.height?this.canvas.width:this.canvas.height))/2/tpercent : 2;
     }
-  }   
+  }
 
   /*
   colorToHex 出处： http://www.zhangxinxu.com/wordpress/2010/03/javascript-hex-rgb-hsl-color-convert/
   colorToRgba 由colorToRgb 修改扩展
-   */ 
-  var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/; 
+   */
+  var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
   String.prototype.colorToHex = function(){
     var that = this;
     if(/^(rgb|RGB)/.test(that)){
@@ -263,13 +263,13 @@ material-design button
         strHex += hex;
       }
       if(strHex.length !== 7){
-        strHex = that;  
+        strHex = that;
       }
       return strHex;
     }else if(reg.test(that)){
       var aNum = that.replace(/#/,"").split("");
       if(aNum.length === 6){
-        return that.toString(); 
+        return that.toString();
       }else if(aNum.length === 3){
         var numHex = "#";
         for(var i=0; i<aNum.length; i+=1){
