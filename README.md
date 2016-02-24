@@ -1,6 +1,9 @@
 # mdbtn.js
 一个生成material-design的按钮效果的js插件
-不要问我为什么没有预览图
+
+~~不要问我为什么没有预览图~~
+好吧现在来这里看吧
+http://iwyvi.github.io/mdbtn/
 
 #简介
 mdbtn使用canvas绘制按钮按下后的波纹效果
