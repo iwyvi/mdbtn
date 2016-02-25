@@ -30,7 +30,7 @@ material-design button
    */
   mdbtn.setOption = function  (opt) {
     for(var key in opt){
-      if(typeof(this.option[key]) != undefined){
+      if(typeof(this.option[key]) !== undefined){
         this.option[key] = opt[key];
       }
     }
@@ -42,12 +42,12 @@ material-design button
    * @param  {obj（可选）} option   mdbtn的选项
    */
   mdbtn.init = function (elements, option) {
-    if(elements && typeof(elements) == "string"){this.elements = elements;};
+    if(elements && typeof(elements) == "string"){this.elements = elements;}
     if(option){
       this.setOption(option);
     }else if(typeof(elements) == "object"){
       this.setOption(elements);
-    };
+    }
     this.addElements();
   };
   /**
@@ -55,7 +55,7 @@ material-design button
    * @param {string（可选）} elements 设置目标对象
    */
   mdbtn.addElements = function (elements) {
-    if(elements && typeof(elements) == "string"){this.elements = elements;};
+    if(elements && typeof(elements) == "string"){this.elements = elements;}
     var containers = document.getElementsByClassName(this.elements);
     for (var i = 0; i < containers.length; i++) {
        containers[i].setAttribute('style',containers[i].getAttribute("style") + ";position:relative;");
@@ -68,12 +68,15 @@ material-design button
       },false);
       containers[i].addEventListener('mouseup',function (event) {
         mousedown = false;
+        if(navigator.userAgent.toLowerCase().indexOf("firefox") >= 0){
+          getEffectElement(event).click();
+        }
       },false);
       containers[i].addEventListener('mouseleave',function (event) {
         mousedown = false;
       },false);
     }
-  }
+  };
 
   /**
    * 按键事件
@@ -116,10 +119,10 @@ material-design button
           process[i].canvas.parentNode.removeChild(process[i].canvas);
           process.splice(i,1);
         }
-      };
+      }
       if(!mousedown){
-        for(var i = 0;i<process.length;i++){
-          process[i].autoClear = true;
+        for(var j = 0;j<process.length;j++){
+          process[j].autoClear = true;
         }
       }
       requestNextFrame(draw);
@@ -242,7 +245,7 @@ material-design button
       this.radiusStep = (this.shadowRadius+(this.canvas.width>this.canvas.height?this.canvas.width:this.canvas.height))/2/tpercent > 2?
       (this.shadowRadius+(this.canvas.width>this.canvas.height?this.canvas.width:this.canvas.height))/2/tpercent : 2;
     }
-  }
+  };
 
   /*
   colorToHex 出处： http://www.zhangxinxu.com/wordpress/2010/03/javascript-hex-rgb-hsl-color-convert/

@@ -13,11 +13,13 @@ button,input,select,textarea {
   font-size: 100%;
   vertical-align: middle;
   outline: none;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
 }
 a{
   text-decoration: none;
   text-align: center;
   display: inline-block;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
 }
 p{
   margin: 0;
@@ -25,6 +27,8 @@ p{
 header{
   text-align: center;
   background-color: #95f0c0;
+  position: relative;
+  z-index: 0;
 }
 #title{
   margin: 0;
@@ -35,7 +39,7 @@ header{
 #subtitle{
   margin: 0;
   padding-top: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 120px;
   font-size: 1.5rem;
   color: #928393;
 }
@@ -54,8 +58,9 @@ header{
   margin-bottom: 25px;
   box-shadow: 0 3px 7px 2px #aaaaaa;
   box-sizing: border-box;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .cardtitle{
@@ -80,6 +85,7 @@ header{
   color: #666;
   text-indent: 2em;
   padding-left: 40px;
+  padding-right: 40px;
 }
 
 .mdbtn{
@@ -148,7 +154,6 @@ header{
 }
 .a-3{
   background-color: #f086a2;
-  
   color: #ffffff;
   font-size: 1.2rem;
   padding: 10px 20px;
@@ -163,4 +168,35 @@ header{
 .a-3:hover{
   background-color: #ffa6be;
   box-shadow: 0 2px 2px 1px #aaaaaa;
+}
+#homepage{
+  position: absolute;
+  top: 210px;
+  right: 20%;
+}
+.a-4{
+  background-color: #ff5c33;
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-left: 80px;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+}
+.a-4:hover{
+  background-color: #f30;
+  box-shadow: 0 2px 2px 1px #aaaaaa;
+}
+
+@media (max-width: 1200px){
+  #container{
+    width: 100%;
+  }
+  #homepage{
+    right: 10%;
+  }
 }
