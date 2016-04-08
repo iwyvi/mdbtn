@@ -45,6 +45,8 @@ elements(string):必选，添加class为elements的所有元素
 **~~然后目前还发现有click事件在firefox下有问题（其他浏览器似乎都没有），目前只能用mouseup来暂时解决~~**
 **目前又在js里面加了Firefox检测，如果在火狐下则再调用一次元素的click()**
 
+**2016.4.8 今天又发现在Safari里也有这个问题所以也是这样处理了一下**
+
 同时代码中HEX与RGB颜色转换代码参照修改了
 http://www.zhangxinxu.com/wordpress/2010/03/javascript-hex-rgb-hsl-color-convert/
 这里的代码
