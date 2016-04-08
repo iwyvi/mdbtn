@@ -68,7 +68,7 @@ material-design button
       },false);
       containers[i].addEventListener('mouseup',function (event) {
         mousedown = false;
-        if(navigator.userAgent.toLowerCase().indexOf("firefox") >= 0){
+        if(navigator.userAgent.toLowerCase().indexOf("firefox") >= 0 || navigator.userAgent.toLowerCase().indexOf("safari")>=0){
           getEffectElement(event).click();
         }
       },false);
@@ -100,7 +100,7 @@ material-design button
     canvas.height = canvas.offsetHeight;
     var context = canvas.getContext('2d');
 
-    var singleMdbtnElement = new singleMdbtn(color,canvas,context,centerX,centerY);
+    var singleMdbtnElement = new SingleMdbtn(color,canvas,context,centerX,centerY);
     process.push(singleMdbtnElement);
     if(!isProcess){
       draw();
@@ -172,10 +172,10 @@ material-design button
   /*
   按钮类
    */
-  var singleMdbtn = function  (color,canvas,context,centerX,centerY) {
+  var SingleMdbtn = function  (color,canvas,context,centerX,centerY) {
     this.init(color,canvas,context,centerX,centerY);
   };
-  singleMdbtn.prototype = {
+  SingleMdbtn.prototype = {
     init: function (color,canvas,context,centerX,centerY) {
       this.color = color;
       this.alpha = 1;
@@ -198,7 +198,7 @@ material-design button
     draw: function () {
       if(this.autoClear){
         this.setStep(10);
-      };
+      }
       if(this.radius >= this.shadowRadius*Math.sqrt(2)){
         if(this.autoClear){
           this.hide();
@@ -258,10 +258,11 @@ material-design button
       var aColor = that.replace(/(?:\(|\)|rgb|RGB)*/g,"").split(",");
       var strHex = "#";
       for(var i=0; i<aColor.length; i++){
+        var hex;
         if(Number(aColor[i])<16){
-        var hex = "0" + Number(aColor[i]).toString(16);
+          hex = "0" + Number(aColor[i]).toString(16);
         }else{
-        var hex = Number(aColor[i]).toString(16);
+          hex = Number(aColor[i]).toString(16);
         }
         strHex += hex;
       }
